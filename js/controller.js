@@ -1,9 +1,6 @@
 /**
  * controller.js
  *
- * Defines the angular controller which defines button behavior on the
- * librarians data visualization.
- *
  *
  */
 
