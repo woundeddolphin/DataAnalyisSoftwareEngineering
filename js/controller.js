@@ -9,7 +9,6 @@
   google.setOnLoadCallback(drawChart);
 
   function drawChart() {
-	    // Create the chart that will be used to animate year-by-year information.
 	    var chart = new google.visualization.AreaChart(document.getElementById('visualization_div'));
       var options = {
         width: 1000,
@@ -19,7 +18,7 @@
         title: 'Game Genres',
         fontName: "Roboto",
         "vAxis": {"title": "Number of Releases",
-				      "viewWindow" : {max : 1100},
+				      "viewWindow" : {max : 100},
 				      "textStyle" : { color: "black",
 						      fontName: "Roboto",
 						      fontSize: 12,
@@ -44,8 +43,8 @@
         isStacked: "true"
       };
 
-
-      var query = "SELECT * FROM 1IOfn29P52Wvcvs3tpc-5S_aiOtCJEDXsi17lqdPR";
+      var query = "SELECT * FROM 1Ol48CwKQEKb-wha9M7kGUf9Pv5g1flz6VSGQbmXv";
+      //var query = "SELECT * FROM 1IOfn29P52Wvcvs3tpc-5S_aiOtCJEDXsi17lqdPR";
 	    var opts = {sendMethod: 'auto'};
 	    var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 	    var temp;
