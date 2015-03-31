@@ -1,6 +1,7 @@
-/**
+ /**
  * controller.js
- *
+ * queries the google fusion table and properly
+ * formats data for google visualizations
  *
  */
 
@@ -9,15 +10,15 @@
   google.setOnLoadCallback(drawChart);
 
   function drawChart() {
-	    var chart = new google.visualization.AreaChart(document.getElementById('visualization_div'));
-      var options = {
-        width: 1000,
-        height: 618,
-        explorer: { maxZoomOut: 1, keepInBounds: true },
+	    var chart = new google.visualization.AreaChart(document.getElementById('visualization_div')); //get the tag to place the visualization at
 
+      var options = { //formating for the visualization
+        explorer: { maxZoomOut: 1, keepInBounds: true },
+        keepAspectRatio: true,
+        height: 650,
         title: 'Game Genres',
         fontName: "Roboto",
-        "vAxis": {"title": "Number of Releases",
+        "vAxis": {"title": "Percentage of releases in each genre",
 				      "viewWindow" : {max : 100},
 				      "textStyle" : { color: "black",
 						      fontName: "Roboto",
@@ -43,22 +44,21 @@
         isStacked: "true"
       };
 
-      var query = "SELECT * FROM 1Ol48CwKQEKb-wha9M7kGUf9Pv5g1flz6VSGQbmXv";
-      //var query = "SELECT * FROM 1IOfn29P52Wvcvs3tpc-5S_aiOtCJEDXsi17lqdPR";
-	    var opts = {sendMethod: 'auto'};
+      var query = "SELECT * FROM 1Ol48CwKQEKb-wha9M7kGUf9Pv5g1flz6VSGQbmXv"; //query for relative volumes
+      //var query = "SELECT * FROM 1IOfn29P52Wvcvs3tpc-5S_aiOtCJEDXsi17lqdPR"; //query for absolute volumes
+
+      var opts = {sendMethod: 'auto'};
 	    var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 	    var temp;
-      var data2;
-
+      var data;
+      var genres = ["Action", "Adventure", "Construction", "Fighting", "FlightSim", "LifeSim", "MMO", "Music", "Puzzle", "Racing", "RPG", "Sandbox", "Shooter", "Sports","Stealth","Strategy"];
       queryObj.setQuery(query);
 
-      queryObj.send(function(e) {
+      queryObj.send(function(e) { //actually query the database
 		    temp = e.getDataTable();
-
-        data2 = new google.visualization.DataView(temp);
-
-		    chart.draw(data2, options);
-    });
+        data = new google.visualization.DataView(temp);
+        chart.draw(data, options);
+      });
 
   }
 

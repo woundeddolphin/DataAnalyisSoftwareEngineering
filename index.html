@@ -2,52 +2,55 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
-
+    <link rel="shortcut icon" href="./SteveVegdahl.ico">
     <title>Game Genres</title>
 </head>
 
-    <body style="font-family: 'Roboto'">
-
-      <div class="container"  ng-controller="ButtonController">
-
-	<div class="row">
-	    <div class="col-md-12">
-              <h1>Game genres over time. <small>Visualizing the number of games by genre per year.</small> </h1>
-	      </div>
-	</div>
-
-	<div class="row" style="margin-top: 20px">
-	  <div class="col-md-3">
-	    <div class="input-group">
-
-	      </div><!-- /input-group -->
-	    </div>
-	  </div><!-- /.row -->
-
-
-     <div class="row">
-       <div class="cold-md-12">
-	 <div id="visualization_div" style="height: 400px; width: 700px;"></div>
-       </div>
+<body>
+    <div class="container"  ng-controller="ButtonController">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Game genres over time. <small>Visualizing the number of games by genre per year.</small> </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cold-md-12">
+                <div id="visualization_div">
+                </div>
+                <div id="checkboxes">
+                    <form>
+                        <input type="checkbox" name="genre" value="Strategy" checked>Strategy
+                        <input type="checkbox" name="genre" value="Stealth" checked>Stealth
+                        <input type="checkbox" name="genre" value="Sports" checked>Sports
+                        <input type="checkbox" name="genre" value="Shooter" checked>Shooter
+                        <input type="checkbox" name="genre" value="Sandbox" checked>Sandbox
+                        <input type="checkbox" name="genre" value="RPG" checked>RPG
+                        <input type="checkbox" name="genre" value="Racing" checked>Racing
+                        <input type="checkbox" name="genre" value="Puzzle" checked>Puzzle <br>
+                        <input type="checkbox" name="genre" value="Music" checked>Music
+                        <input type="checkbox" name="genre" value="MMO" checked>MMO
+                        <input type="checkbox" name="genre" value="LifeSim" checked>LifeSim
+                        <input type="checkbox" name="genre" value="FlightSim" checked>FlightSim
+                        <input type="checkbox" name="genre" value="Fighting" checked>Fighting
+                        <input type="checkbox" name="genre" value="Construction" checked>Construction
+                        <input type="checkbox" name="genre" value="Adventure" checked>Adventure
+                        <input type="checkbox" name="genre" value="Action" checked>Action
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-        <form>
-            <input type="checkbox" name="sex" value="male" checked>Male
-            <input type="checkbox" name="sex" value="female">Female
-        </form>
-
 
 <!-- Begin footer content -->
- <footer class="footer">
-   <div class="container">
-     <p class="text-muted">by genre-ations</p>
-   </div>
- </footer>
-
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">by Genre-ations</p>
+        </div>
+    </footer>
 </body>
 </html>
