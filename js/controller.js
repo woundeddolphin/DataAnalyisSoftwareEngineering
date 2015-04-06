@@ -5,14 +5,19 @@
  *
  */
 
+  var options;
+  var data;
+  var chart;
+  var genreations = genreations || {};
+
   google.load('visualization', '1', {packages: ['corechart']});
 
-  google.setOnLoadCallback(drawChart);
+  google.setOnLoadCallback(draw);
 
-  function drawChart() {
-	    var chart = new google.visualization.AreaChart(document.getElementById('visualization_div')); //get the tag to place the visualization at
+  function draw() {
+	    chart = new google.visualization.AreaChart(document.getElementById('visualization_div')); //get the tag to place the visualization at
 
-      var options = { //formating for the visualization
+      options = { //formating for the visualization
         explorer: { maxZoomOut: 1, keepInBounds: true },
         keepAspectRatio: true,
         height: 650,
@@ -50,7 +55,7 @@
       var opts = {sendMethod: 'auto'};
 	    var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 	    var temp;
-      var data;
+      data;
       var genres = ["Action", "Adventure", "Construction", "Fighting", "FlightSim", "LifeSim", "MMO", "Music", "Puzzle", "Racing", "RPG", "Sandbox", "Shooter", "Sports","Stealth","Strategy"];
       queryObj.setQuery(query);
 
@@ -61,6 +66,38 @@
       });
 
   }
+function update() {
+  var numGenres = 16;
+  var boxes = document.getElementsByClassName("genre");
+  var checked = [];
+  for (var i = 0; i < 16; i++)
+  {
+    checked[i] = boxes[i].checked;
+  }
+  console.log(checked);
+  var q = "";
+  for (var i = 0; i < 16; i++)
+  {
+    if(checked[i])
+    {
+      var j = 16 - i;
+      var q = j + ", " + q;
+    }
+  }
+  q = "0, " + q;
+  q = q.substring(0, q.length - 2);
+  eval("data.setColumns([" + q + "]);");
+  console.log(q);
+  chart.draw(data, options);
+
+}
+
+
+$([type="checkbox"]).change(function() {
+
+    var i = genreations.update;
+});
+
 
 
 
