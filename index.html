@@ -4,6 +4,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="./js/jquery-2.1.3.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript" src="js/controller.js"></script>
@@ -12,34 +13,38 @@
 </head>
 
 <body>
-    <div class="container"  ng-controller="ButtonController">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>Game genres over time. <small>Visualizing the number of games by genre per year.</small> </h1>
             </div>
         </div>
         <div class="row">
-            <div class="cold-md-12">
+            <div class="col-md-12">
                 <div id="visualization_div">
                 </div>
-                <div id="checkboxes">
+                <div id="checkboxes_div">
                     <form>
-                        <input type="checkbox" name="genre" value="Strategy" checked>Strategy
-                        <input type="checkbox" name="genre" value="Stealth" checked>Stealth
-                        <input type="checkbox" name="genre" value="Sports" checked>Sports
-                        <input type="checkbox" name="genre" value="Shooter" checked>Shooter
-                        <input type="checkbox" name="genre" value="Sandbox" checked>Sandbox
-                        <input type="checkbox" name="genre" value="RPG" checked>RPG
-                        <input type="checkbox" name="genre" value="Racing" checked>Racing
-                        <input type="checkbox" name="genre" value="Puzzle" checked>Puzzle <br>
-                        <input type="checkbox" name="genre" value="Music" checked>Music
-                        <input type="checkbox" name="genre" value="MMO" checked>MMO
-                        <input type="checkbox" name="genre" value="LifeSim" checked>LifeSim
-                        <input type="checkbox" name="genre" value="FlightSim" checked>FlightSim
-                        <input type="checkbox" name="genre" value="Fighting" checked>Fighting
-                        <input type="checkbox" name="genre" value="Construction" checked>Construction
-                        <input type="checkbox" name="genre" value="Adventure" checked>Adventure
-                        <input type="checkbox" name="genre" value="Action" checked>Action
+                        <div>
+                            <input type="checkbox" onclick="update()" class="genre" value="Strategy" checked>Strategy
+                            <input type="checkbox" onclick="update()" class="genre" value="Stealth" checked>Stealth
+                            <input type="checkbox" onclick="update()" class="genre" value="Sports" checked>Sports
+                            <input type="checkbox" onclick="update()" class="genre" value="Shooter" checked>Shooter
+                            <input type="checkbox" onclick="update()" class="genre" value="Sandbox" checked>Sandbox
+                            <input type="checkbox" onclick="update()" class="genre" value="RPG" checked>RPG
+                            <input type="checkbox" onclick="update()" class="genre" value="Racing" checked>Racing
+                            <input type="checkbox" onclick="update()" class="genre" value="Puzzle" checked>Puzzle
+                            <input type="checkbox" onclick="update()" class="genre" value="Music" checked>Music
+                        </div>
+                        <div>
+                            <input type="checkbox" onclick="update()" class="genre" value="MMO" checked>MMO
+                            <input type="checkbox" onclick="update()" class="genre" value="LifeSim" checked>LifeSim
+                            <input type="checkbox" onclick="update()" class="genre" value="FlightSim" checked>FlightSim
+                            <input type="checkbox" onclick="update()" class="genre" value="Fighting" checked>Fighting
+                            <input type="checkbox" onclick="update()" class="genre" value="Construction" checked>Construction
+                            <input type="checkbox" onclick="update()" class="genre" value="Adventure" checked>Adventure
+                            <input type="checkbox" onclick="update()" class="genre" value="Action" checked>Action
+                        </div>
                     </form>
                 </div>
             </div>
