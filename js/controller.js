@@ -18,11 +18,15 @@
 	    chart = new google.visualization.AreaChart(document.getElementById('visualization_div')); //get the tag to place the visualization at
 
       options = { //formating for the visualization
-        explorer: { maxZoomOut: 1, keepInBounds: true },
+        explorer: { maxZoomOut: 1, maxZoomIn: .08, keepInBounds: true, axis: 'horizontal' },
         keepAspectRatio: true,
         height: 650,
         title: 'Game Genres',
         fontName: "Roboto",
+        animation:{
+          duration: 1000,
+          easing: 'inAndOut',
+        },
         "vAxis": {"title": "Percentage of releases in each genre",
 				      "viewWindow" : {max : 100},
 				      "textStyle" : { color: "black",
@@ -46,7 +50,13 @@
 							   fontSize: 16,
 							   bold: false,
 							   italic: false }},
-        isStacked: "true"
+        isStacked: "true",
+        series: {
+          Strategy: {
+              color: 'red'},
+          Action: {
+            color: 'red'}
+        }
       };
 
       var query = "SELECT * FROM 1Ol48CwKQEKb-wha9M7kGUf9Pv5g1flz6VSGQbmXv"; //query for relative volumes
